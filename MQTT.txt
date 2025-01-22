@@ -5,7 +5,7 @@ Verifica se tá cadastrado no banco, caso Não, perguntar se deseja cadastrar.
 
 esp32/access/# -> LabVIEW publica estado de liberado ou não para o sistema.
 LabVIEW TOPIC: esp32/access/8813BF71B078
-LABVIEW RESPONSE: Jhonathan, seu acesso foi liberado!
+LABVIEW RESPONSE: Fulano, seu acesso foi liberado!
 
 
 esp32/access/all -> LabVIEW publica keep alive do sistema. Com hora e título
