@@ -11,7 +11,7 @@
 #define TEMP_TOPIC "esp32/local/uid"
 #define LED_TOPIC "esp32/led"
 const char* ssid = "brisa-1441146";
-const char* password = "xbe6e0nx";
+const char* password = "########";
 
 const char* mqttserver = "broker.hivemq.com";
 const int mqttport = 1883;
