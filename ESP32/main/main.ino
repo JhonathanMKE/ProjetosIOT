@@ -14,7 +14,7 @@ String UID_TOPIC;
 String ACCESS_TOPIC;
 
 const char* ssid = "brisa-1441146"; //SSID WIFI
-const char* password = "#######"; //WIFI PASSWORD
+const char* password = "###"; //WIFI PASSWORD
 
 const char* mqttserver = "broker.hivemq.com"; //BROKER ADDRESS
 const int mqttport = 1883; //BROKER PORT
@@ -113,6 +113,7 @@ void callback(char* topic, byte* payload, unsigned int length) //FUNÇÃO PARA T
     if (messageStr.isEmpty()) {
       //digitalWrite(LED_PIN, HIGH); // DESLIGAR LED - NÃO LIBERAR ACESSO
       Serial.println("Acesso negado!");
+      lcd.print("Acesso negado!");
     } else {
       //digitalWrite(LED_PIN, LOW); // LIGAR LED - ACESSO LIBERADO
       scrollText(messageStr, 0); //CHAMAR FUNÇÃO DO LCD PARA MOSTRAR TEXTO PASSANDO
@@ -181,7 +182,7 @@ void setup() {
 void loop() {
 
   if (!client.connected()) {
-  reconnect();
+    reconnect();
   }
 
   client.loop(); //O processamento das mensagens é assíncrono.
