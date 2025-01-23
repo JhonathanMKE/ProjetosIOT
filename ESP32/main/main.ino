@@ -9,9 +9,16 @@
 #include <PubSubClient.h>
 #include <esp_wifi.h>
 
+<<<<<<< HEAD
 //#define UID_TOPIC //REMOVER DPS
 String UID_TOPIC;
 String ACCESS_TOPIC;
+=======
+#define TEMP_TOPIC "esp32/local/uid"
+#define LED_TOPIC "esp32/led"
+const char* ssid = "brisa-1441146";
+const char* password = "########";
+>>>>>>> c88f3061e288e6975f70ca5eefd7f1b69b85efa5
 
 const char* ssid = "brisa-1441146"; //SSID WIFI
 const char* password = "###"; //WIFI PASSWORD
