@@ -9,19 +9,16 @@
 #include <PubSubClient.h>
 #include <esp_wifi.h>
 
-<<<<<<< HEAD
+
 //#define UID_TOPIC //REMOVER DPS
 String UID_TOPIC;
 String ACCESS_TOPIC;
-=======
+
 #define TEMP_TOPIC "esp32/local/uid"
 #define LED_TOPIC "esp32/led"
 const char* ssid = "brisa-1441146";
-const char* password = "########";
->>>>>>> c88f3061e288e6975f70ca5eefd7f1b69b85efa5
+const char* password = "xbe6e0nx";
 
-const char* ssid = "brisa-1441146"; //SSID WIFI
-const char* password = "###"; //WIFI PASSWORD
 
 const char* mqttserver = "broker.hivemq.com"; //BROKER ADDRESS
 const int mqttport = 1883; //BROKER PORT
@@ -121,9 +118,17 @@ void callback(char* topic, byte* payload, unsigned int length) //FUNÇÃO PARA T
       //digitalWrite(LED_PIN, HIGH); // DESLIGAR LED - NÃO LIBERAR ACESSO
       Serial.println("Acesso negado!");
       lcd.print("Acesso negado!");
+      digitalWrite(35, HIGH);
+      digitalWrite(33, LOW);
+      delay(1000);
+      digitalWrite(35, LOW);
+      digitalWrite(33, LOW);
     } else {
-      //digitalWrite(LED_PIN, LOW); // LIGAR LED - ACESSO LIBERADO
+      digitalWrite(35, LOW);
+      digitalWrite(33, HIGH);
       scrollText(messageStr, 0); //CHAMAR FUNÇÃO DO LCD PARA MOSTRAR TEXTO PASSANDO
+      digitalWrite(35, LOW);
+      digitalWrite(33, LOW);
     }
   } else {
     if(topicStr == "esp32/access/all"){
@@ -168,6 +173,15 @@ void setup() {
   Serial.begin(9600);
   SPI.begin(); // Init SPI bus
   rfid.PCD_Init(); // Init MFRC522 
+
+  pinMode(35, OUTPUT);
+  pinMode(33, OUTPUT);
+
+  digitalWrite(35, HIGH);
+  digitalWrite(33, HIGH);
+  delay(2000);
+  digitalWrite(35, LOW);
+  digitalWrite(33, LOW);
 
   for (byte i = 0; i < 6; i++) {
     key.keyByte[i] = 0xFF;
